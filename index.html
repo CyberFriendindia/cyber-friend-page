@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Friend - Digital Safety</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* MODERN COLOR PALETTE */
+        :root {
+            --primary-color: #0D1321;   /* Deep Navy Background */
+            --secondary-color: #1D2D44; /* Header/Section Bar */
+            --accent-color: #41EAD4;    /* Neon Aqua/Teal for Highlights */
+            --text-color: #F7F7FF;      /* Near White Text */
+            --card-bg: #F7F7FF;         /* White Cards */
+            --card-text: #0D1321;       /* Dark Text on Cards */
+            --shadow-light: 0 4px 15px rgba(65, 234, 212, 0.2); /* Subtle Glow */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--secondary-color);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 300;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 25px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 5px;
+        }
+
+        /* Grid Layout for Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: var(--card-bg);
+            color: var(--card-text);
+            border-radius: 15px; /* Softer edges */
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px); /* Deeper lift */
+            box-shadow: var(--shadow-light); /* Modern neon glow */
+        }
+
+        .card i {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color); /* Icons use the accent color */
+            transition: color 0.3s ease;
+        }
+        
+        .card:hover i {
+             color: var(--secondary-color); /* Icon color shift on hover */
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* Specific Colors for specific buttons (using accent color for borders) */
+        .btn-check {
+            border-top: 5px solid var(--accent-color);
+        }
+        
+        .btn-info {
+            border-top: 5px solid #ff9f1c; /* Kept orange for info contrast */
+        }
+
+        /* Disabled Card Style (Modern 'Coming Soon') */
+        .card.disabled {
+            background-color: var(--secondary-color); /* Dark, frosted look */
+            color: var(--text-color);
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border-top: 5px solid #778da9;
+        }
+
+        .card.disabled:hover {
+            transform: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        
+        .card.disabled i {
+            color: var(--text-color);
+        }
+        
+        .card.disabled p {
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .contact-btn:hover {
+            background-color: #00d9b7; /* Slightly darker teal */
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #778da9;
+            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><i class="fas fa-shield-alt"></i> Cyber Friend</h1>
+        <p>Stay Alert. Stay Safe. Stay Secure.</p>
+    </header>
+
+    <div class="container">
+
+        <h2 class="section-title">Knowledge Center</h2>
+        <div class="grid-container">
+            <a href="https://gujaratcybercrime.org/eng/index.html#cybercrime" class="card btn-info">
+                <i class="fas fa-book-open"></i>
+                <h3>Don't Be a Victim , Be Cyber Aware</h3>
+                <p>Learn about Cyber Safety (english/gujarati) </p>
+            </a>
+        </div>
+
+        <h2 class="section-title">Safety Tools & Checks</h2>
+        <div class="grid-container">
+            
+            <a href="https://gujaratcybercrime.org/eng/fraud_search.html" target="_blank" class="card btn-check">
+                <i class="fas fa-phone-slash"></i>
+                <h3>Check Suspicious Phone</h3>
+                <p>Verify fraud numbers</p>
+            </a>
+
+            <a href="https://transparencyreport.google.com/safe-browsing/search" target="_blank" class="card btn-check">
+                <i class="fas fa-globe-americas"></i>
+                <h3>Check Suspicious Website</h3>
+                <p>Scan URLs for phishing/malware</p>
+            </a>
+
+            <a href="https://ceir.sancharsaathi.gov.in/Request/CeirUserBlockRequestDirect.jsp" target="_blank" class="card btn-check">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Request for blocking lost/stolen mobile</h3>
+                <p>Verify stolen/lost mobile status</p>
+            </a>
+
+            <a href="https://gujaratcybercrime.org/eng/fraud_acsearch.html" target="_blank" class="card btn-check">
+                <i class="fas fa-university"></i>
+                <h3>Search Fraud A/C No</h3>
+                <p>Check suspicious bank accounts</p>
+            </a>
+
+             <a href="https://factcheck.pib.gov.in/" target="_blank" class="card btn-check">
+                <i class="fas fa-check-double"></i>
+                <h3>Fact Check</h3>
+                <p>Verify viral news & messages</p>
+            </a>
+
+            <a href="https://cybercrime.gov.in/Webform/Crime_AuthoLogin.aspx" class="card btn-check">
+                <i class="fas fa-user-secret"></i>
+                <h3>Report Fraud</h3>
+                <p>File a complaint instantly</p>
+            </a>
+        </div>
+
+        <h2 class="section-title">Test Your Knowledge</h2>
+        <div class="grid-container">
+            <div class="card disabled">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Cyber Quiz</h3>
+                <p>Coming Soon...</p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2><i class="fas fa-headset"></i> Contact Us</h2>
+            <p>Need immediate assistance? Reach out to the Cyber Crime Helpline.</p>
+            
+            <a href="tel:1930" class="contact-btn"><i class="fas fa-phone"></i> Call 1930 (Helpline)</a>
+            <a href="https://wa.link/a4okzm" class="contact-btn"><i class="fab fa-whatsapp"></i> Whatsapp Us ( cyber friend )</a>
+            
+          
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Cyber Friend Initiative. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
